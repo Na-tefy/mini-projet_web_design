@@ -31,7 +31,7 @@ class LuckyController extends AbstractController
         ]);
     }
     /**
-     * @Route("/index.html")
+     * @Route("/index.html", name="index")
      */
     public function index()
     {
