@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ article.titre }}
+{% endblock %}
+{% block body1 %}
+    {{ parent() }}
+    <h1>{{ article.titre }} </h1>
+    <h6>published on {{ article.getDateText() }} at {{ article.getTimeText() }}</h6>
+    <p>    {{ article.description }} </p>
+{% endblock %}
