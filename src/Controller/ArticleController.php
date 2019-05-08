@@ -32,9 +32,9 @@ class ArticleController extends AbstractController
         return new Response('Saved new article with id '.$article->getId());
     }
     /**
-     * @Route("/article/{id}", name="article_show")
+     * @Route("/article/{titre}-{id}", name="article_show")
      */
-    public function show($id)
+    public function show($titre,$id)
     {
         $article = $this->getDoctrine()
             ->getRepository(Article::class)
