@@ -323,7 +323,7 @@ footer .copyright {
   -ms-transition: top 0.3s ease,opacity 0.3s ease;
   transition: top 0.3s ease,opacity 0.3s ease;
 }
-.floating-label-form-group::not(:first-child) {
+.floating-label-form-group:not {
   padding-left: 14px;
   border-left: 1px solid #eeeeee;
 }
@@ -404,4 +404,24 @@ img::-moz-selection {
 }
 body {
   -webkit-tap-highlight-color: #0085A1;
+}
+.bg-IMG_20190423_141432 {
+  width: 500px; height: 500px;
+  background: url('../img/css_sprites.png') -10px -542px;
+}
+.bg-kisspng_computer_icons_home_clip_art_black_home_icon_5ab0be3121a1f5_8709230015215324651378 {
+  width: 512px; height: 512px;
+  background: url('../img/css_sprites.png') -10px -10px;
+}
+.bg-soccer_ball_39433 {
+  width: 512px; height: 512px;
+  background: url('../img/css_sprites.png') -542px -10px;
+}
+.bg-home_bg {
+  width: 1900px; height: 872px;
+  background: url('../img/css_sprites.png') -10px -10px;
+}
+.bg-Untitled_1 {
+  width: 236px; height: 236px;
+  background: url('../img/css_sprites.png') -10px -902px;
 }

@@ -1,12 +1,10 @@
 <div class="post-preview">
-    <a href="article/{{ article.id }}">
         <h2 class="post-title">
             {{ article.titre }}
         </h2>
         <h3 class="post-subtitle">
             {{ article.description|trword(10) }}
         </h3>
-    </a>
     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on {{ article.getDateText() }}</p>
 </div>
 <button class="btn"><a href="/bo/delete/{{ article.id }}">delete</a> </button>
