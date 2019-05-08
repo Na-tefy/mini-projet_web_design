@@ -47,5 +47,22 @@ class LuckyController extends AbstractController
 
         return $this->render('index.html.twig',['articles' => $articles]);
     }
+    /**
+     * @Route("/bo/index.html", name="indexBO")
+     */
+    public function indexBO()
+    {
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+
+        if(!$articles){
+            throw $this->createNotFoundException(
+                'no article found '
+            );
+        }
+
+        return $this->render('indexBO.html.twig',['articles' => $articles]);
+    }
 
 }

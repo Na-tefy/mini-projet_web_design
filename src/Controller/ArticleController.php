@@ -49,6 +49,27 @@ class ArticleController extends AbstractController
         return $this->render('fiche1.html.twig', ['article' => $article] );
     }
     /**
+     * @Route("/bo/delete/{id}", name="delete")
+     */
+    public function delete($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
+
+        if(!$article){
+            throw $this->createNotFoundException(
+                'no article found for id '.$id
+            );
+        }
+
+        $entityManager->remove($article);
+        $entityManager->flush();
+        return $this->redirectToRoute('index');
+    }
+
+    /**
      * @Route("/bo/add", name="bo")
      */
     public function ajouter(Request $request)
@@ -60,7 +81,30 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('indexBO');
+        }
+        return $this->render('ajouter.html.twig', ['articleform'=>$form->createView()] );
+    }
+    /**
+     * @Route("/bo/update/{id}", name="update")
+     */
+    public function update(Request $request,$id)
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
+
+        if(!$article){
+            throw $this->createNotFoundException(
+                'no article found for id '.$id
+            );
+        }
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+            return $this->redirectToRoute('indexBO');
         }
         return $this->render('ajouter.html.twig', ['articleform'=>$form->createView()] );
     }
