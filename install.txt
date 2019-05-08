@@ -1,0 +1,7 @@
+-Utiliser php 7.1 ou supérieur
+	si ce n'est pas le cas, télécharger php 7.1 et mettre le fichier php.exe dans les variables d'environnement
+-installer un composer (si ce n'est déjà fait)
+-télécharger le contenu du git et le mettre dans un dossier nommé "my-project"
+-pour lancer le site, entrer dans le dossier my-project et ouvrir une une invite de commande dans ce repertoire
+-lancer la commande "php bin/console server:run"
+-ouvrir le site via "localhost:8000/index.html" ou "localhost:8000/bo/index.html"
